@@ -6,8 +6,26 @@ from flask_debugtoolbar import DebugToolbarExtension
 app = Flask(__name__)
 app.secret_key = "SECRETSECRETSECRET"
 
+
 def is_mel(name, email):
-    """Is this user Mel?"""
+    """Is this user Mel?
+
+    >>> is_mel('Mel Melitpolski', 'mel@ubermelon.com')
+    True
+
+    >>> is_mel('Judith Butler', 'judith@awesome.com')
+    False
+
+    >>> is_mel("Mel Melitpolski", "judith@awesome.com")
+    True
+
+    >>> is_mel("Harry Potter", "mel@ubermelon.com")
+    True
+
+    >>> is_mel(" ", " ")
+    False
+
+    """
 
     return name == "Mel Melitpolski" or email == "mel@ubermelon.com"
 
